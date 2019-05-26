@@ -1,0 +1,11 @@
+{% extends "InventoryShop/baselayout.html"%}
+
+{% block content %}
+    <h2>Hieronder is een voorbeeld. Data gehardcode in views.py, met een for-loop in deze html gezet</h2>
+    <br> <br>
+    {% for item in items %}
+        <h1>{{item.ProductName}}</h1>
+        <p>type: {{item.ProductType}}</p>
+        <p>description: {{item.ProductDescription}}</p>
+    {% endfor %}
+{% endblock content %}
