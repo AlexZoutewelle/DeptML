@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import EmpWithItems
 
 
 # Create your views here.
@@ -20,9 +20,12 @@ items = [
 
 ]
 
+test = []
+test.append(EmpWithItems.objects.get(EmployeeId=3611, InventoryId=43))
+
 def home(request):
     context = {
-        'items' : items
+        'items' : test
     }
-    return render(request, 'InventoryShop/home.html', context)   #Tweede parameter: kijkt naar de templates folder -> InventoruShop folder -> pak home.html
+    return render(request, 'InventoryShop/home.html', context)   #Tweede parameter: kijkt naar de templates folder -> InventoryShop folder -> pak home.html
 
