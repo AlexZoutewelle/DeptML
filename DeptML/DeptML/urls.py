@@ -21,3 +21,4 @@ urlpatterns = [
     path('inventory/', include('InventoryShop.urls')),
 
 ]
+
