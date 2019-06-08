@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import EmpWithItems
-
+from .models import Employees
+from .models import Inventory
 
 # Create your views here.
 
@@ -22,6 +23,9 @@ items = [
 
 test = []
 test.append(EmpWithItems.objects.get(EmployeeId=3611, InventoryId=43))
+test.append(Employees.objects.get(id=3611))
+test.append(Inventory.objects.get(id=43))
+
 
 def home(request):
     context = {

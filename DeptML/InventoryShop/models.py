@@ -20,3 +20,27 @@ class EmpWithItems(models.Model):
     InventoryId = models.IntegerField()
     rating = models.IntegerField()
     id = models.IntegerField(primary_key=True)
+
+class Employees(models.Model):
+    id = models.IntegerField(primary_key=True)
+    Role = models.TextField()
+    Active = models.BooleanField()
+    DateJoined = models.TextField()
+    WorkExperience = models.IntegerField()
+    Location = models.TextField()
+
+class Inventory(models.Model):
+    id = models.IntegerField(primary_key=True)
+    ProductName = models.TextField()
+    ProductCategory = models.TextField()
+    Specifications = models.TextField()
+    Description = models.TextField()
+    SerialNumber = models.TextField()
+    Price = models.FloatField()
+    DateCreated = models.TextField()
+    DateUpdated = models.TextField()
+    Stock = models.IntegerField()
+    Total = models.IntegerField()
+    Terminated = models.IntegerField()
+    IsLoanItem = models.IntegerField()
+    Location = models.TextField()
