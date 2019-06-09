@@ -30,7 +30,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MODEL_ROOT = os.path.join(BASE_DIR, 'Models')
+
 INSTALLED_APPS = [
+    'rest_framework',
     'InventoryShop.apps.InventoryshopConfig',
     'django.contrib.admin',
     'django.contrib.auth',
