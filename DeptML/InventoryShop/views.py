@@ -50,6 +50,13 @@ class Train(views.APIView):
         df_X = pd.get_dummies(df_X)
         df_Y = pd.DataFrame(ratings_Y, columns=['Rating'])
 
+        #Before we train, we pickle an empty row from the dataframe, so we can use it later in prediction tasks
+        df_copy = pd.DataFrame(0, [1], columns=df_X.columns)
+        print("Shape of df_X: "  + str(df_X.shape[1]))
+        df_copy.to_pickle("./Models/InputRowX")
+
+
+
         #Sparse matrix for the X, normal array (as matrix) for the Y
         X = csr_matrix(df_X)
         y = np.array(df_Y['Rating'].as_matrix())
@@ -72,15 +79,60 @@ class Train(views.APIView):
 
 
         print("OK")
+        model.destroy()
         return Response(status=status.HTTP_200_OK)
 
 
 
 class Predict(views.APIView):
     def post(self, request):
-        predictions  = []
 
-        #Instantiate our model
+        print("start")
+        # Then, for input, we unpickle the empty row we saved during training
+        inputRow = pd.read_pickle("./Models/InputRowX")
+        print("shape of inputRowX: " + str(inputRow.shape[1]))
+
+        # To ready this input row, we first need the users' Id and Function Role
+        employeeId = 10436
+        employeeRole = "Front-end Developer"
+
+        print("shape of inputRowX: " + str(inputRow.shape[1]))
+
+        # We insert those values in their correspondent columns
+        inputRow['EmployeeId_' + str(employeeId)] = 1
+        inputRow['Role_' + str(employeeRole)] = 1
+
+        print("shape of inputRowX: " + str(inputRow.shape[1]))
+
+
+        # Lastly, we iterate over all the itemIds to make predictions, and show the user the best ones
+
+        # Query for all Ids, these must be unique
+        querySet = EmpWithItems.objects.select_related()
+        InventoryIds = []
+        for i in querySet:
+            if i.Inventory.id not in InventoryIds:
+                InventoryIds.append(i.Inventory.id)
+                print(str(i.Inventory.id))
+
+
+        # For each Id, we need a new row, effectively creating a matrix
+        inputMatrix = pd.concat([inputRow] * len(InventoryIds), ignore_index=True)
+        print("shape of inputRowX: " + str(inputMatrix.shape[1]))
+
+        print("Columns: " + inputMatrix.columns)
+        # For each Id, we put it in the input row
+        for i in range(len(InventoryIds)):
+
+             currentColumn = "InventoryId_" + str(InventoryIds[i])
+             inputMatrix.at[i, currentColumn] = 1
+             print(currentColumn)
+
+
+
+        print("Creating model..")
+
+        # Instantiate our model
         model = TFFMRegressor(
             order=8,
             rank=7,
@@ -91,36 +143,30 @@ class Predict(views.APIView):
             input_type='sparse'
         )
 
-        #First, we need to pass it the number of features it's trained on
-        model.core.set_num()    #Dit getal moet je nog ff zien te pakken
-
-        #Then, we load it's data from de Models directory
+        print("Model created. Setting number of features...")
+        # First, we need to pass it the number of features it's trained on
+        model.core.set_num_features(inputMatrix.shape[1])    #Dit getal moet je nog ff zien te pakken
+        print(inputMatrix.shape[1])
+        print("Loading previous model state..")
+        # Then, we load it's data from de Models directory
         model.load_state('./Models/RecEngine')
 
-        #Then, we need to query the database for two things:
 
-            #1, the data of this user: Role, etc
+        print("Starting prediction..")
 
-            #2, all the inventoryid's we have in the database
+        x = csr_matrix(inputMatrix)
 
+        predictions = model.predict(x)
 
+        print("Predictions done!")
+        for i in predictions:
+            print(i)
 
-        #Lastly, we iterate over all the itemIds to make predictions, and show the user the best ones
-        predictions = model.predict()
-
+        print("End!")
         return Response(status=status.HTTP_200_OK)
 
 
-<<<<<<< HEAD
-test = EmpWithItems.objects.all()[:10]
-inv = Inventory.objects.all()
-
-def home(request):
-    context = {
-        'items' : test,
-        'inventory' : inv
-=======
-trainClass = Train()
+trainClass = Predict()
 trainClass.post('')
 
 def home(request):
