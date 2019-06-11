@@ -7,10 +7,6 @@ from tffm import TFFMRegressor
 import tensorflow as tf
 from django.conf import settings
 from django.shortcuts import render
-<<<<<<< HEAD
-from .models import EmpWithItems, Inventory
-
-=======
 from rest_framework import views
 from rest_framework import status
 from rest_framework.response import Response
@@ -18,10 +14,8 @@ from .models import EmpWithItems
 from .models import Employees
 from .models import Inventory
 from scipy.sparse import csr_matrix
->>>>>>> master
-
 # Create your views here.
-
+from django.shortcuts import HttpResponse
 
 
 #Het volgende is een query naar Inventory, Employees en EmpWithItems, allemaal in 1 keer.
@@ -30,7 +24,6 @@ from scipy.sparse import csr_matrix
 
 class Train(views.APIView):
     def post(self, request):
-
                                     #Fetch data from database
         rows_X = []
         ratings_Y = []
@@ -54,7 +47,6 @@ class Train(views.APIView):
         df_copy = pd.DataFrame(0, [1], columns=df_X.columns)
         print("Shape of df_X: "  + str(df_X.shape[1]))
         df_copy.to_pickle("./Models/InputRowX")
-
 
 
         #Sparse matrix for the X, normal array (as matrix) for the Y
@@ -123,11 +115,9 @@ class Predict(views.APIView):
         print("Columns: " + inputMatrix.columns)
         # For each Id, we put it in the input row
         for i in range(len(InventoryIds)):
-
-             currentColumn = "InventoryId_" + str(InventoryIds[i])
-             inputMatrix.at[i, currentColumn] = 1
-             print(currentColumn)
-
+            currentColumn = "InventoryId_" + str(InventoryIds[i])
+            inputMatrix.at[i, currentColumn] = 1
+            print(currentColumn)
 
 
         print("Creating model..")
@@ -169,9 +159,12 @@ class Predict(views.APIView):
 trainClass = Predict()
 trainClass.post('')
 
+
+allProducts = Inventory.objects.all()
+
 def home(request):
     context = {
->>>>>>> master
+        'inventory' : allProducts,
     }
     return render(request, 'InventoryShop/home.html', context)   #Tweede parameter: kijkt naar de templates folder -> InventoryShop folder -> pak home.html
 

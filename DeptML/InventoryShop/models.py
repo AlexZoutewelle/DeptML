@@ -2,8 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-<<<<<<< HEAD
-=======
 class Product(models.Model):
     ProductName = models.CharField(max_length=100)
     Description = models.TextField()
@@ -14,8 +12,6 @@ class Product(models.Model):
 class UserItems(models.Model):
     employee = models.ForeignKey(User, on_delete=models.CASCADE)    #Als User is verwijderd, verwijder deze rij ook
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
-
-
 
 class Employees(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -42,23 +38,10 @@ class Inventory(models.Model):
     Location = models.TextField()
 
 
->>>>>>> master
 class EmpWithItems(models.Model):
     DateStart = models.TextField()
     DateEnd = models.TextField()
     rating = models.IntegerField()
-<<<<<<< HEAD
-    id = models.IntegerField(primary_key=True)
-
-class Inventory(models.Model):
-    ProductName = models.CharField(max_length=100)
-    ProductImage = models.CharField(max_length=200)
-    location = models.CharField(max_length=100)
-    id = models.IntegerField(primary_key=True)
-
-
-=======
     Employees = models.ForeignKey(Employees, on_delete=models.CASCADE, default=0, related_name='employees')
-    Inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, default=0, related_name='inventory')
+    Inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, default=0,related_name='inventory')
     id = models.IntegerField(primary_key=True)
->>>>>>> master

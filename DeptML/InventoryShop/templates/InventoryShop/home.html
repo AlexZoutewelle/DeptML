@@ -2,127 +2,129 @@
 {% block content %}
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3">
-				<h1>sidepanel</h1>
-			</div>
-			<div class="col-md-9">
-				<div class="container" style="position:relative;">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="product-rec">Are you looking for <b>this?</b></h2>
-							<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-								<!-- Carousel indicators -->
-								<ol class="carousel-indicators">
-									{#				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>#}
-									{#				<li data-target="#myCarousel" data-slide-to="1"></li>#}
-									{#				<li data-target="#myCarousel" data-slide-to="2"></li>#}
-								</ol>
-								<div class="carousel-inner">
-									<div class="item carousel-item active">
-										<div class="row">
-											{% for i in i|rjust:3 %}
-												<div class="col-sm-3">
-													<div class="thumb-wrapper">
-														<div class="img-box">
-															<img src="https://images.kogan.com/image/fetch/s--4uUL-TgJ--/b_white,c_pad,f_auto,h_400,q_auto:good,w_600/https://assets.kogan.com/files/product/HKI/20170324_New_iPad/KHIPADAIR332WGRY_1.jpg" class="img-responsive img-fluid" alt="">
-														</div>
-														<div class="thumb-content">
-															<h4>Apple iPad</h4>
-															<p class="item-price"><strike>€400.00</strike> <span>€369.00</span></p>
-															<div class="star-rating">
-																<ul class="list-inline">
-																</ul>
-															</div>
-															<a href="#" class="btn btn-primary">Add to Cart</a>
-														</div>
-													</div>
-												</div>
-											{% endfor %}
+			<aside class="col-sm-3">
+				<div class="card card-filter" style="margin-top:20px;">
+					<article class="card-group-item">
+						<header class="card-header">
+							<a class="" aria-expanded="true" href="#" data-toggle="collapse" data-target="#collapse22">
+								<i class="icon-action fa fa-chevron-down"></i>
+								<h6 class="title" style="display: inline-block;">Search</h6>
+							</a>
+						</header>
+						<div style="" class="filter-content collapse show" id="collapse22">
+							<div class="card-body">
+								<form class="pb-3">
+									<div class="input-group">
+										<input class="form-control" placeholder="Search" type="text">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
 										</div>
 									</div>
-									<div class="item carousel-item">
-										<div class="row">
-											{% for i in i|rjust:3 %}
-												<div class="col-sm-3">
-													<div class="thumb-wrapper">
-														<div class="img-box">
-															<img src="https://media.playstation.com/is/image/SCEA/playstation-4-slim-vertical-product-shot-01-us-07sep16?$native_t$" class="img-responsive img-fluid" alt="">
-														</div>
-														<div class="thumb-content">
-															<h4>Sony Play Station</h4>
-															<p class="item-price"><strike>€289.00</strike> <span>€269.00</span></p>
-															<div class="star-rating">
-																<ul class="list-inline">
-																	<li class="list-inline-item"><i class="fa fa-star"></i></li>
-																	<li class="list-inline-item"><i class="fa fa-star"></i></li>
-																	<li class="list-inline-item"><i class="fa fa-star"></i></li>
-																	<li class="list-inline-item"><i class="fa fa-star"></i></li>
-																	<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-																</ul>
-															</div>
-															<a href="#" class="btn btn-primary">Add to Cart</a>
-														</div>
-													</div>
+								</form>
+								<ul class="list-unstyled list-lg">
+									<li><a href="#">Cras justo odio <span class="float-right badge badge-light round">142</span> </a></li>
+									<li><a href="#">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a></li>
+									<li><a href="#">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a></li>
+									<li><a href="#">Another item <span class="float-right badge badge-light round">12</span>  </a></li>
+								</ul>
+								</div> <!-- card-body.// -->
+								</div> <!-- collapse .// -->
+								</article> <!-- card-group-item.// -->
+								<article class="card-group-item">
+									<header class="card-header">
+										<a href="#" data-toggle="collapse" data-target="#collapse33" aria-expanded="true" class="">
+											<i class="icon-action fa fa-chevron-down"></i>
+											<h6 class="title" style="display: inline-block;">By Price  </h6>
+										</a>
+									</header>
+									<div class="filter-content collapse show" id="collapse33" style="">
+										<div class="card-body">
+											<input type="range" class="custom-range" min="0" max="100" name="">
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label>Min</label>
+													<input class="form-control" placeholder="$0" type="number">
 												</div>
-											{% endfor %}
-										</div>
-									</div>
-								</div>
-								<!-- Carousel controls -->
-								<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-									<i class="fa fa-angle-left"></i>
-								</a>
-								<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-									<i class="fa fa-angle-right"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="divider">
-					<hr>
-				</div>
-				<div class="container" style="position:relative;">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="product-rec">Products</b></h2>
-							<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-								<div class="carousel-inner">
-									<div class="item carousel-item active">
-										<div class="row">
-											{% for item in inventory %}
-												<div class="col-sm-3">
-													<div class="thumb-wrapper">
-														<div class="img-box">
-															<img src="{{item.ProductImage}}" class="img-responsive img-fluid" alt="">
-														</div>
-														<div class="thumb-content">
-															<h4>{{item.ProductName}}</h4>
-															{% if item.location == 'NULL' %}
-																<p class="item-unavailable" style="color:#EF3E36">
-																	Unavailable
-																</p>
-															{% else %}
-																<p class="item-available" style="color:#17BEBB">
-																	{{item.location}}
-																</p>
-															{% endif %}
-															<div class="star-rating">
-																<ul class="list-inline">
-																</ul>
-															</div>
-															<a href="#" class="btn btn-primary">Add to Cart</a>
-														</div>
-													</div>
+												<div class="form-group text-right col-md-6">
+													<label>Max</label>
+													<input class="form-control" placeholder="$1,0000" type="number">
 												</div>
-											{% endfor %}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	{% endblock content %}
+												</div> <!-- form-row.// -->
+												<button class="btn btn-block btn-outline-primary">Apply</button>
+												</div> <!-- card-body.// -->
+												</div> <!-- collapse .// -->
+												</article> <!-- card-group-item.// -->
+												<article class="card-group-item">
+													<header class="card-header">
+														<a href="#" data-toggle="collapse" data-target="#collapse44" aria-expanded="true" class="">
+															<i class="icon-action fa fa-chevron-down"></i>
+															<h6 class="title" style="display: inline-block;">By Feature </h6>
+														</a>
+													</header>
+													<div class="filter-content collapse show" id="collapse44" style="">
+														<div class="card-body">
+															<form>
+																<label class="form-check">
+																	<input class="form-check-input" value="" type="checkbox">
+																	<span class="form-check-label">
+																		<span class="float-right badge badge-light round">5</span>
+																		Samsung
+																	</span>
+																	</label>  <!-- form-check.// -->
+																	<label class="form-check">
+																		<input class="form-check-input" value="" type="checkbox">
+																		<span class="form-check-label">
+																			<span class="float-right badge badge-light round">13</span>
+																			Mersedes Benz
+																		</span>
+																		</label> <!-- form-check.// -->
+																		<label class="form-check">
+																			<input class="form-check-input" value="" type="checkbox">
+																			<span class="form-check-label">
+																				<span class="float-right badge badge-light round">12</span>
+																				Nissan Altima
+																			</span>
+																			</label>  <!-- form-check.// -->
+																			<label class="form-check">
+																				<input class="form-check-input" value="" type="checkbox">
+																				<span class="form-check-label">
+																					<span class="float-right badge badge-light round">32</span>
+																					Another Brand
+																				</span>
+																				</label>  <!-- form-check.// -->
+																			</form>
+																			</div> <!-- card-body.// -->
+																			</div> <!-- collapse .// -->
+																			</article> <!-- card-group-item.// -->
+																			</div> <!-- card.// -->
+																		</aside>
+																		<div class="col-md-9" style="margin-top:20px;">
+																			<div class="container" style="position:relative;">
+																				<!-- Alle producten -->
+																				<div class="row">
+																					{% for item in inventory %}
+																						<div class="col-md-4">
+																							<div class="card" style="margin-bottom: 30px;">
+																								<img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
+																								<div class="card-body">
+																									<h5 class="card-title">{{item.ProductName}}</h5>
+																									{% if item.Location == 'NULL' %}
+																										<p class="card-text" style="color:#EF3E36">
+																											Unavailable
+																										</p>
+																									{% else %}
+																										<p class="card-text" style="color:#17BEBB">
+																											📍 		{{item.Location}}
+																										</p>
+																									{% endif %}
+																									<p class="card-text"><button type="button" class="btn btn-primary btn-sm" style="margin-right: 5px">Add to cart</button><button type="button" class="btn btn-danger btn-sm">Favorite</button></p>
+																								</div>
+																							</div>
+																						</div>
+																					{% endfor  %}
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															{% endblock content %}
