@@ -13,8 +13,6 @@ class UserItems(models.Model):
     employee = models.ForeignKey(User, on_delete=models.CASCADE)    #Als User is verwijderd, verwijder deze rij ook
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-
-
 class Employees(models.Model):
     id = models.IntegerField(primary_key=True)
     Role = models.TextField()
@@ -46,5 +44,5 @@ class EmpWithItems(models.Model):
     DateEnd = models.TextField()
     rating = models.IntegerField()
     Employees = models.ForeignKey(Employees, on_delete=models.CASCADE, default=0, related_name='employees')
-    Inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, default=0, related_name='inventory')
+    Inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, default=0,related_name='inventory')
     id = models.IntegerField(primary_key=True)
