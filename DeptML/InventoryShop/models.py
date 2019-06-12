@@ -38,6 +38,7 @@ class Inventory(models.Model):
     Terminated = models.IntegerField()
     IsLoanItem = models.IntegerField()
     Location = models.TextField()
+    ProductImage = models.TextField(default='DEFAULT VALUE')
 
 
 class EmpWithItems(models.Model):

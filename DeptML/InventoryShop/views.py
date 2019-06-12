@@ -32,6 +32,8 @@ class Train(views.APIView):
 
         #The following is a query: it selects everything from the EmpWithItems table, along with the Employees and Inventory items, using their foreign keys
         querySet = EmpWithItems.objects.select_related()
+        for i in querySet:
+            print(i)
 
         #We split the data into the rows we need. One for X, and one for Y
         for i in querySet:
@@ -47,7 +49,7 @@ class Train(views.APIView):
 
         #Before we train, we pickle an empty row from the dataframe, so we can use it later in prediction tasks
         df_copy = pd.DataFrame(0, [1], columns=df_X.columns)
-        print("Shape of df_X: "  + str(df_X.shape[1]))
+        print("Shape of df_X: "  + str(df_X.shape))
         df_copy.to_pickle("./Models/InputRowX")
 
 
