@@ -80,9 +80,9 @@ class Train(views.APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-
 class Predict(views.APIView):
     def post(self, request):
+
 
         print("start")
         # Then, for input, we unpickle the empty row we saved during training
@@ -105,7 +105,9 @@ class Predict(views.APIView):
         # Lastly, we iterate over all the itemIds to make predictions, and show the user the best ones
 
         # Query for all Ids, these must be unique
-        querySet = EmpWithItems.objects.select_related()
+        querySet = EmpWithItems.objects.select_related('Inventory')
+        print("the QuerySet: ")
+        print(querySet)
         InventoryIds = []
         for i in querySet:
             if i.Inventory.id not in InventoryIds:
@@ -142,7 +144,7 @@ class Predict(views.APIView):
 
         print("Model created. Setting number of features...")
         # First, we need to pass it the number of features it's trained on
-        model.core.set_num_features(inputMatrix.shape[1])    #Dit getal moet je nog ff zien te pakken
+        model.core.set_num_features(inputMatrix.shape[1])
         print(inputMatrix.shape[1])
         print("Loading previous model state..")
         # Then, we load it's data from de Models directory
@@ -155,19 +157,48 @@ class Predict(views.APIView):
 
         predictions = model.predict(x)
 
+        #Now that we have our predictions, we need to create a tuple of {InventoryId, predictedRating}
+
+        #Create the list for the predictions
+        predictions_List = []
+
         print("Predictions done!")
         for i in predictions:
+            predictions_List.append(i)
+
+
+        for i in predictions_List:
             print(i)
 
+        #Create a list of tuples
+        tuple_list = zip(InventoryIds, predictions_List)
+        #Select the 10 highest rated items
+        tuple_list = sorted(tuple_list, key=lambda x: x[1], reverse=True)
+
+        ChosenItems = []
+        print("Created tuples")
+        for i in range(10):
+            print(tuple_list[i])
+            ChosenItems.append(Inventory.objects.get(pk=tuple_list[i][0]))
+
         print("End!")
-        return Response(status=status.HTTP_200_OK)
+
+        return ChosenItems
+        #return Response(status=status.HTTP_200_OK)
 
 
-trainClass = Predict()
-trainClass.post('')
+#trainClass = Predict()
+#trainClass.post('')
+
+
+
 
 def home(request):
+    trainClass = Predict()
+    recommendedItems = trainClass.post('')
+
     context = {
+        'inventory' : recommendedItems,
     }
     return render(request, 'InventoryShop/home.html', context)   #Tweede parameter: kijkt naar de templates folder -> InventoryShop folder -> pak home.html
 

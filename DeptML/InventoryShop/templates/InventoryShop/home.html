@@ -91,6 +91,7 @@
 									<div class="item carousel-item active">
 										<div class="row">
 											{% for item in inventory %}
+
 												<div class="col-sm-3">
 													<div class="thumb-wrapper">
 														<div class="img-box">
@@ -98,13 +99,13 @@
 														</div>
 														<div class="thumb-content">
 															<h4>{{item.ProductName}}</h4>
-															{% if item.location == 'NULL' %}
+															{% if item.Location == 'NULL' %}
 																<p class="item-unavailable" style="color:#EF3E36">
 																	Unavailable
 																</p>
 															{% else %}
 																<p class="item-available" style="color:#17BEBB">
-																	{{item.location}}
+																	{{item.Location}}
 																</p>
 															{% endif %}
 															<div class="star-rating">

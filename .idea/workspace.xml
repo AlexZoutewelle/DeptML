@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97377d75-2051-4969-852d-f68e7b201b9a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/InventoryShop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/InventoryShop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeptML/InventoryShop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/InventoryShop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/Models/InputRowX" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/Models/InputRowX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/Models/RecEngine.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/Models/RecEngine.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/Models/RecEngine.index" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/Models/RecEngine.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/Models/RecEngine.meta" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/Models/RecEngine.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeptML/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/DeptML/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +31,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="100" column="74" lean-forward="true" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
+            <state relative-caret-position="323">
+              <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -63,7 +66,7 @@
       <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4301">
+            <state relative-caret-position="4420">
               <caret line="260" selection-start-line="260" selection-end-line="260" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -75,7 +78,7 @@
       <file leaf-file-name="core.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-3136">
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -85,7 +88,9 @@
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/models.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1606" />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
@@ -132,7 +137,6 @@
         <option value="$PROJECT_DIR$/InventoryShop/models.py" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/baselayout.html" />
-        <option value="$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/static/InventoryShop/main.css" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/apps.py" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/RecEngine.py" />
@@ -143,6 +147,7 @@
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/urls.py" />
         <option value="$PROJECT_DIR$/DeptML/DeptML/settings.py" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/models.py" />
+        <option value="$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html" />
         <option value="$PROJECT_DIR$/DeptML/InventoryShop/views.py" />
       </list>
     </option>
@@ -189,6 +194,21 @@
               <item name="DeptML" type="462c0819:PsiDirectoryNode" />
               <item name="InventoryShop" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeptML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeptML" type="462c0819:PsiDirectoryNode" />
+              <item name="DeptML" type="462c0819:PsiDirectoryNode" />
+              <item name="InventoryShop" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeptML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeptML" type="462c0819:PsiDirectoryNode" />
+              <item name="DeptML" type="462c0819:PsiDirectoryNode" />
+              <item name="InventoryShop" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="InventoryShop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DeptML" type="b2602c69:ProjectViewProjectNode" />
@@ -380,13 +400,6 @@
     <entry file="file://$PROJECT_DIR$/InventoryShop/views.py" />
     <entry file="file://$PROJECT_DIR$/DeptML/views.py" />
     <entry file="file://$PROJECT_DIR$/InventoryShop/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="67" lean-forward="true" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/baselayout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -490,37 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4301">
-          <caret line="260" selection-start-line="260" selection-end-line="260" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3451">
@@ -532,6 +514,46 @@
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3136">
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4420">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/tffm/tffm/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1606" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/templates/InventoryShop/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="100" column="74" lean-forward="true" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -547,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DeptML/InventoryShop/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
+        <state relative-caret-position="323">
+          <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
