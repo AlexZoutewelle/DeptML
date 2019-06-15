@@ -17,11 +17,7 @@ from scipy.sparse import csr_matrix
 # Create your views here.
 from django.shortcuts import HttpResponse
 
-
 #Het volgende is een query naar Inventory, Employees en EmpWithItems, allemaal in 1 keer.
-
-
-
 def TrainModel():
                                 #Fetch data from database
     rows_X = []
@@ -75,7 +71,6 @@ def TrainModel():
     model.destroy()
     return Response(status=status.HTTP_200_OK)
 
-
 def CreatePredictor():
     print("Creating model..")
 
@@ -104,10 +99,8 @@ def CreatePredictor():
 
     return [model, inputRow]
 
-
-
 class Predict(views.APIView):
-    def post(self, request):
+    def post(self, request, employeeIdd, employeeRolee):
         print("start")
 
 
@@ -120,8 +113,8 @@ class Predict(views.APIView):
         model = modelInstantiation[0]
         inputRow = modelInstantiation[1]
 
-        employeeId = 10436
-        employeeRole = "Front-end Developer"
+        employeeId = employeeIdd
+        employeeRole = employeeRolee
 
         print("shape of inputRowX: " + str(inputRow.shape[1]))
 
@@ -130,8 +123,6 @@ class Predict(views.APIView):
         inputRow['Role_' + str(employeeRole)] = 1
 
         print("shape of inputRowX: " + str(inputRow.shape[1]))
-
-
         # Lastly, we iterate over all the itemIds to make predictions, and show the user the best ones
 
         # Query for all Ids, these must be unique
@@ -213,25 +204,45 @@ class Predict(views.APIView):
 
         return ChosenItems
         #return Response(status=status.HTTP_200_OK)
-
-
 #trainClass = Predict()
 #trainClass.post('')
-
-
-
-
 modelInstantiation = CreatePredictor()
-
 allProducts = Inventory.objects.all()
 
-def home(request):
+def home(request, employeeIdd=11798, employeeRolee='Full-stack Developer'):
     trainClass = Predict()
-    recommendedItems = trainClass.post('')
-
+    recommendedItems = trainClass.post('', employeeIdd, employeeRolee)
     context = {
         'inventory': recommendedItems,
-
     }
     return render(request, 'InventoryShop/home.html', context)   #Tweede parameter: kijkt naar de templates folder -> InventoryShop folder -> pak home.html
 
+
+def iosdeveloper(request, employeeIdd=15219, employeeRolee='ios developer'):
+    trainClass = Predict()
+    recommendedItems = trainClass.post('', employeeIdd, employeeRolee)
+    context = {
+        'inventory': recommendedItems,
+    }
+    return render(request, 'InventoryShop/home.html', context)
+
+
+def datascientist(request, employeeIdd=6267, employeeRolee='Data Scientist'):
+    trainClass = Predict()
+    recommendedItems = trainClass.post('', employeeIdd, employeeRolee)
+    context = {
+        'inventory': recommendedItems,
+    }
+    return render(request, 'InventoryShop/home.html', context)
+
+def softwaretester(request, employeeIdd=11800, employeeRolee='Software tester'):
+    trainClass = Predict()
+    recommendedItems = trainClass.post('', employeeIdd, employeeRolee)
+    context = {
+        'inventory': recommendedItems,
+    }
+    return render(request, 'InventoryShop/home.html', context)
+    #15219 = ios developer
+    #11798 = fullstack
+    #6267 = data scientist
+    #11800 = software tester
